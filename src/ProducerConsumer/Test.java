@@ -5,6 +5,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Test {
     public static void main(String...args){
+        //the length of the queue is 2
         BlockingQueue<String> q =new LinkedBlockingQueue<>(2);
         Producer producer=new Producer(q);
         Consumer consumer=new Consumer(q);
