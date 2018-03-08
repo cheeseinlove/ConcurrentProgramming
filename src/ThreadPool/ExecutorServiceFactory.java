@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 线程池构造工厂
  * 单例模式-饿汉模式实现
+ * 工厂模式-提供了不同的线程池的实现
  *@author I346123
  *@date 2018.3.6
  */

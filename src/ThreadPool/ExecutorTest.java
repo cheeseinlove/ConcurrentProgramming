@@ -15,7 +15,7 @@ public class ExecutorTest {
 
         ExecutorProcessPool pool = ExecutorProcessPool.getInstance();
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 20; i++) {
             Future<?> future = pool.submit(new ExcuteTask1(i+""));
 //          try {
 //              如果接收线程返回值，future.get() 会阻塞，如果这样写就是一个线程一个线程执行。所以非特殊情况不建议使用接收返回值的。
@@ -25,7 +25,7 @@ public class ExecutorTest {
 //          }
         }
 
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 20; i++) {
             pool.execute(new ExcuteTask2(i+""));
         }
 

@@ -6,6 +6,7 @@ import java.util.concurrent.Future;
 
 /**
  * 线程处理类
+ *单例模式-饿汉模式实现
  *@author I346123
  *@date 2018.3.6
  */
@@ -17,7 +18,8 @@ public class ExecutorProcessPool {
 
     private ExecutorProcessPool() {
         System.out.println("threadMax>>>>>>>" + threadMax);
-        executor = ExecutorServiceFactory.getInstance().createFixedThreadPool(threadMax);
+//        executor = ExecutorServiceFactory.getInstance().createFixedThreadPool(threadMax);
+        executor=ExecutorServiceFactory.getInstance().createCachedThreadPool();
     }
 
     public static ExecutorProcessPool getInstance() {
