@@ -20,7 +20,7 @@ public class CasCounter {
         CasCounter counter = new CasCounter();
         counter.value = new SimulatedCAS();
         counter.value.compareAndSet(0, 5);
-
+//         System.out.println(counter.increment());
         MythreadA a = new MythreadA(counter);
         MythreadB b = new MythreadB(counter);
         a.run();
