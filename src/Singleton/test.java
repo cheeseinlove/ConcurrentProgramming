@@ -3,11 +3,15 @@ package Singleton;
 public class test extends Thread {
 
     public static void main(String... args) {
-        for (int i = 0; i < 10; i++) {
-            new Thread(new test(), "" + i).start();
-        }
+//        for (int i = 0; i < 10; i++) {
+//            new Thread(new test(), "" + i).start();
+//        }
 
+//cglib代理单例
+        CglibProxy proxy = new CglibProxy(Singleton3.getInstance());
+        Singleton3 s1 =  (Singleton3) proxy.Proxy();
 
+        s1.doSomething();
     }
 
     @Override

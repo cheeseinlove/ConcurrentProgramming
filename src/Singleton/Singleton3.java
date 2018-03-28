@@ -23,4 +23,7 @@ public class Singleton3 {
         }
         return instance;
     }
+    public static void doSomething(){
+        System.out.println("I'm running !");
+    }
 }
