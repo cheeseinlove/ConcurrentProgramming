@@ -1,5 +1,7 @@
 package Singleton;
 
+import java.util.HashMap;
+
 public class test extends Thread {
 
     public static void main(String... args) {
