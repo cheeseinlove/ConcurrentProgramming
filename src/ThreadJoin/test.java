@@ -10,7 +10,7 @@ public class test {
             bt.start();
            Thread.sleep(2000);//B 跑2s后A跑
             at.start();
-//            at.join();
+            at.join();
         } catch (Exception e) {
             System.out.println("Exception from main");
         }
