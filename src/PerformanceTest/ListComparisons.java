@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
  * Created by Administrator on 2018/4/8.
  */
 abstract class Tester<C> {
-    static int testReps = 10;
+    static int testReps = 2;
     static int testCycles = 1000;
     static int containerSize = 1000;
 
@@ -58,7 +58,7 @@ abstract class Tester<C> {
         }
         System.out.printf("%-27s %14d %14d\n", testId, readTime, writeTime);
         if (readTime != 0 && writeTime != 0)
-            System.out.printf("%-27s %14d\n", "readTime + writeTime +", readTime + writeTime);
+            System.out.printf("%-27s %14d\n", "readTime + writeTime =", readTime + writeTime);
 
     }
 
@@ -80,15 +80,15 @@ abstract class Tester<C> {
         }
     }
 
-    public static void initMain(String[] args) {
-        if (args.length > 0)
-            testReps = new Integer(args[0]);
-        if (args.length > 1)
-            testCycles = new Integer(args[1]);
-        if (args.length > 2)
-            containerSize = new Integer(args[2]);
-        System.out.printf("%-27s %14s %14s\n", "Type", "Read time", "Write time");
-    }
+//    public static void initMain(String[] args) {
+//        if (args.length > 0)
+//            testReps = new Integer(args[0]);
+//        if (args.length > 1)
+//            testCycles = new Integer(args[1]);
+//        if (args.length > 2)
+//            containerSize = new Integer(args[2]);
+//        System.out.printf("%-27s %14s %14s\n", "Type", "Read time", "Write time");
+//    }
 }
 
 abstract class ListTest extends Tester<List<Integer>> {
@@ -156,7 +156,9 @@ class CopyOnWriteArrayListTest extends ListTest {
 
 public class ListComparisons {
     public static void main(String[] args) {
-        Tester.initMain(args);
+//        Tester.initMain(args);
+        System.out.printf("%-27s %14s %14s\n", "Type", "Read time", "Write time");
+
         new SynchronizedArrayListTest(10, 0);
         new SynchronizedArrayListTest(9, 1);
         new SynchronizedArrayListTest(5, 5);
