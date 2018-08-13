@@ -1,5 +1,7 @@
 package CasCounter;
 
+import sun.plugin.cache.OldCacheEntry;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 public class ConcurrentLinkedQueue<E> {
@@ -40,5 +42,26 @@ public class ConcurrentLinkedQueue<E> {
 
     }
 
+    public synchronized void addFirst(E item){
+        Node<E> newHead=new Node<E>(item,null);
+        Node<E> oldHead;
+        do{
+            oldHead=head.get();
+            newHead.next.compareAndSet(null,oldHead);
+        }while (!head.compareAndSet(oldHead,newHead));
+    }
+//     public void addFirst(E item){
+//        Node<E> newHead=new Node<E>(item,null);
+//         while(true){
+//             Node<E>curHead=head.get();
+//             Node<E> headNext=curHead.next.get();
+//             if(curHead==head.get()){
+//                 //若当前head.next为空则为中间态
+//                 if(curHead.next==null)
+//
+//             }
+//         }
+//
+//     }
 
 }
